@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية رؤية - تسجيل جديد</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'raaya-green': '#a7f3d0', 
+                        'raaya-beige': '#f5f5dc',
+                        'raaya-sky': '#87ceeb', 
+                        'raaya-dark': '#1e293b', 
+                        'raaya-light': '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-raaya-beige text-gray-800 transition-colors duration-300 dark:bg-raaya-dark dark:text-raaya-light flex items-center justify-center min-h-screen">
+    
+    <div class="w-full max-w-lg bg-white dark:bg-gray-800 rounded-xl shadow-2xl p-8 space-y-6">
+        <h2 class="text-3xl font-bold text-center text-raaya-dark dark:text-raaya-light">إنشاء حساب جديد</h2>
+        
+        <form id="register-form" class="space-y-4">
+            
+            <div>
+                <label for="full_name" class="block text-sm font-medium text-gray-700 dark:text-gray-300">الاسم الرباعي (باللغة العربية)</label>
+                <input type="text" id="full_name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-raaya-sky focus:border-raaya-sky dark:bg-gray-700 dark:border-gray-600 dark:text-white" pattern="^[\u0621-\u064A\s]{5,}" title="الاسم يجب أن يكون باللغة العربية">
+            </div>
+
+            <div>
+                <label for="governorate" class="block text-sm font-medium text-gray-700 dark:text-gray-300">المحافظة</label>
+                <select id="governorate" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-raaya-sky focus:border-raaya-sky dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <option value="" disabled selected>اختر محافظتك</option>
+                    <option value="cairo">القاهرة</option>
+                    <option value="giza">الجيزة</option>
+                    <option value="alexandria">الإسكندرية</option>
+                    <option value="qalyubia">القليوبية</option>
+                    <option value="sharqia">الشرقية</option>
+                    <option value="monufia">المنوفية</option>
+                    <option value="beheira">البحيرة</option>
+                    <option value="gharbia">الغربية</option>
+                    <option value="kafr_el_sheikh">كفر الشيخ</option>
+                    <option value="damietta">دمياط</option>
+                    <option value="port_said">بورسعيد</option>
+                    <option value="suez">السويس</option>
+                    <option value="ismailia">الإسماعيلية</option>
+                    <option value="fayoum">الفيوم</option>
+                    <option value="beni_suef">بني سويف</option>
+                    <option value="minya">المنيا</option>
+                    <option value="asyut">أسيوط</option>
+                    <option value="sohag">سوهاج</option>
+                    <option value="qena">قنا</option>
+                    <option value="luxor">الأقصر</option>
+                    <option value="aswan">أسوان</option>
+                    <option value="red_sea">البحر الأحمر</option>
+                    <option value="new_valley">الوادي الجديد</option>
+                    <option value="matrouh">مطروح</option>
+                    <option value="north_sinai">شمال سيناء</option>
+                    <option value="south_sinai">جنوب سيناء</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">النوع</label>
+                <div class="flex space-x-4 space-x-reverse">
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="gender" value="male" required class="form-radio text-raaya-sky h-4 w-4">
+                        <span class="mr-2 text-gray-700 dark:text-gray-300">ذكر</span>
+                    </label>
+                    <label class="inline-flex items-center">
+                        <input type="radio" name="gender" value="female" required class="form-radio text-raaya-sky h-4 w-4">
+                        <span class="mr-2 text-gray-700 dark:text-gray-300">أنثى</span>
+                    </label>
+                </div>
+            </div>
+
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700 dark:text-gray-300">اسم المستخدم للدخول (بالأحرف العربية، اللاتينية، أو الأرقام)</label>
+                <input type="text" id="username" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-raaya-sky focus:border-raaya-sky dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+            </div>
+
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700 dark:text-gray-300">كلمة المرور</label>
+                <div class="relative mt-1">
+                    <input type="password" id="password" required class="block w-full pr-10 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-raaya-sky focus:border-raaya-sky dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                    <button type="button" id="togglePassword" class="absolute inset-y-0 left-0 flex items-center pr-3 text-gray-500 hover:text-raaya-dark dark:text-gray-400 dark:hover:text-raaya-light">
+                        👁️
+                    </button>
+                </div>
+            </div>
+
+            <div>
+                <label for="contact" class="block text-sm font-medium text-gray-700 dark:text-gray-300">البريد الإلكتروني أو رقم الهاتف</label>
+                <input type="text" id="contact" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-raaya-sky focus:border-raaya-sky dark:bg-gray-700 dark:border-gray-600 dark:text-white" title="أدخل بريد إلكتروني صالح أو رقم هاتف">
+            </div>
+            
+            <button type="submit" class="w-full px-4 py-2 bg-raaya-sky text-white font-bold rounded-lg shadow-md hover:bg-raaya-dark transition duration-300">
+                تسجيل جديد
+            </button>
+        </form>
+        
+        <p id="message" class="text-center font-medium"></p>
+
+        <div class="text-center text-sm">
+            <a href="login.html" class="text-raaya-sky hover:underline">هل لديك حساب؟ تسجيل الدخول</a>
+            <span class="mx-2">|</span>
+            <a href="index.html" class="text-gray-500 hover:underline">العودة للرئيسية</a>
+        </div>
+    </div>
+    
+    <script type="module">
+        // استيراد دالة التسجيل من progress_logic.js
+        import { registerUser } from './js/progress_logic.js';
+
+        // دالة إظهار/إخفاء كلمة المرور
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            // تغيير رمز العين حسب الحالة (اختياري)
+            this.textContent = type === 'password' ? '👁️' : '🔒';
+        });
+
+        // منطق التسجيل
+        document.getElementById('register-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value;
+            const fullName = document.getElementById('full_name').value.trim();
+            const governorate = document.getElementById('governorate').value;
+            const gender = document.querySelector('input[name="gender"]:checked').value;
+            const contact = document.getElementById('contact').value.trim();
+            const message = document.getElementById('message');
+
+            if (!username || !password) {
+                message.textContent = 'الرجاء إدخال اسم المستخدم وكلمة المرور.';
+                message.className = 'text-red-500 text-center font-medium';
+                return;
+            }
+            
+            // تحقق من أن الاسم الرباعي عربي
+            const arabicNameRegex = /^[\u0621-\u064A\s]{5,}$/;
+            if (!arabicNameRegex.test(fullName)) {
+                 message.textContent = 'الاسم الرباعي يجب أن يكون باللغة العربية.';
+                 message.className = 'text-red-500 text-center font-medium';
+                 return;
+            }
+
+            // التحقق من اسم المستخدم (يسمح بالإنجليزية، الأرقام، والعربية)
+            const usernameRegex = /^[A-Za-z0-9\u0600-\u06FF\s]+$/;
+            if (!usernameRegex.test(username)) {
+                 message.textContent = 'اسم المستخدم يجب أن يكون بأحرف وأرقام عربية أو لاتينية فقط.';
+                 message.className = 'text-red-500 text-center font-medium';
+                 return;
+            }
+
+            // يتم حفظ كافة البيانات في Local Storage
+            const userData = {
+                password: password,
+                fullName: fullName,
+                governorate: governorate,
+                gender: gender,
+                contact: contact
+            };
+
+            // دالة registerUser (الموجودة في progress_logic.js) تحتاج إلى تعديل بسيط لتقبل البيانات الإضافية
+            // سنفترض أننا سنمرر البيانات الإضافية داخل الكود لتخزينها
+            
+            if (registerUser(username, password, userData)) {
+                message.textContent = '🎉 تم إنشاء الحساب بنجاح. سيتم توجيهك لصفحة الدخول.';
+                message.className = 'text-raaya-green text-center font-bold';
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1500);
+            } else {
+                message.textContent = '⚠️ اسم المستخدم موجود بالفعل. الرجاء اختيار اسم آخر.';
+                message.className = 'text-red-500 text-center font-medium';
+            }
+        });
+    </script>
+</body>
+</html>

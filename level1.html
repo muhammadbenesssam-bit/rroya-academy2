@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية رؤية - المستوى الأول</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'raaya-green': '#a7f3d0', 
+                        'raaya-beige': '#f5f5dc',
+                        'raaya-sky': '#87ceeb', 
+                        'raaya-dark': '#1e293b', 
+                        'raaya-light': '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-raaya-beige text-gray-800 transition-colors duration-300 dark:bg-raaya-dark dark:text-raaya-light">
+    
+    <header class="bg-raaya-light dark:bg-gray-900 shadow-md transition-colors duration-300">
+        <div class="container mx-auto p-4 flex justify-between items-center max-w-7xl">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-raaya-dark dark:text-raaya-light">أكاديمية رؤية</a>
+            <a href="index.html" class="text-raaya-sky hover:underline font-semibold text-sm md:text-base">الرئيسية &rarr;</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <h1 class="text-3xl md:text-5xl font-extrabold text-raaya-dark dark:text-raaya-light mb-8">
+            المستوى الأول: أساسيات العلوم الشرعية
+        </h1>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            
+            <a href="subject_fiqh.html" class="bg-raaya-light dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] border-r-4 border-raaya-green">
+                <h2 class="text-2xl font-bold dark:text-raaya-light mb-2">📚 الفقه</h2>
+                <p class="text-gray-600 dark:text-gray-400">20 درساً - تعلم أحكام الطهارة والصلاة والصيام والزكاة.</p>
+            </a>
+
+            <a href="subject_aqidah.html" class="bg-raaya-light dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] border-r-4 border-raaya-sky">
+                <h2 class="text-2xl font-bold dark:text-raaya-light mb-2">✨ العقيدة</h2>
+                <p class="text-gray-600 dark:text-gray-400">20 درساً - أسس الإيمان بالله وملائكته وكتبه ورسله واليوم الآخر والقدر.</p>
+            </a>
+            
+            <a href="subject_seerah.html" class="bg-raaya-light dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-[1.02] border-r-4 border-yellow-500">
+                <h2 class="text-2xl font-bold dark:text-raaya-light mb-2">🕌 السيرة النبوية</h2>
+                <p class="text-gray-600 dark:text-gray-400">21 درساً - رحلة النبي ﷺ من المولد حتى الوفاة.</p>
+            </a>
+            
+        </div>
+        
+        <div class="bg-gray-100 dark:bg-gray-900 p-6 md:p-10 rounded-xl shadow-2xl text-center">
+            <h2 class="text-2xl md:text-3xl font-bold text-raaya-dark dark:text-raaya-light mb-4">الامتحان النهائي للمستوى الأول</h2>
+            
+            <p id="completion-status" class="text-md md:text-lg text-gray-600 dark:text-gray-400 mb-6">
+                يتم فتح الامتحان النهائي بعد إكمال 95% من جميع دروس المستوى الأول.
+            </p>
+
+            <button id="exam-button" disabled class="w-full max-w-sm px-6 py-3 bg-gray-400 text-white font-bold rounded-lg shadow-lg cursor-not-allowed transition duration-300">
+                الامتحان مغلق (أكمل جميع الدروس)
+            </button>
+            
+        </div>
+
+    </main>
+    
+    <footer class="bg-gray-200 dark:bg-gray-900 py-4 mt-12 transition-colors duration-300">
+        <div class="container mx-auto text-center text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-7xl">
+            <p>&copy; 2024 أكاديمية رؤية للعلوم الشرعية.</p>
+            <p class="mt-1 font-semibold text-raaya-dark dark:text-raaya-light">كن ذا أثر</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        // استيراد دالة تحديث حالة الامتحان
+        import { updateExamStatus } from './js/progress_logic.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // تشغيل الدالة عند تحميل الصفحة لتحديث زر الامتحان
+            updateExamStatus(); 
+        });
+    </script>
+</body>
+</html>

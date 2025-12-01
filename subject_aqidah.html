@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية رؤية - العقيدة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'raaya-green': '#a7f3d0', 
+                        'raaya-beige': '#f5f5dc',
+                        'raaya-sky': '#87ceeb', 
+                        'raaya-dark': '#1e293b', 
+                        'raaya-light': '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-raaya-beige text-gray-800 transition-colors duration-300 dark:bg-raaya-dark dark:text-raaya-light">
+    
+    <header class="bg-raaya-light dark:bg-gray-900 shadow-md transition-colors duration-300">
+        <div class="container mx-auto p-4 flex justify-between items-center max-w-7xl">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-raaya-dark dark:text-raaya-light">أكاديمية رؤية</a>
+            <a href="level1.html" class="text-raaya-sky hover:underline font-semibold text-sm md:text-base">العودة للمستويات &rarr;</a>
+        </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 max-w-7xl">
+        <a href="level1.html" class="text-raaya-sky dark:text-raaya-green hover:underline font-semibold mb-4 block">
+            &larr; العودة إلى المستويات
+        </a>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-raaya-dark dark:text-raaya-light mb-4 border-b pb-2 border-raaya-green">
+            ✨ مادة العقيدة (المستوى الأول)
+        </h1>
+        
+        <div class="bg-raaya-light dark:bg-gray-800 p-4 rounded-lg shadow-md mb-8">
+            <h2 class="text-xl font-bold dark:text-raaya-light mb-2">التقدم في المادة:</h2>
+            <div class="w-full bg-gray-200 rounded-full h-3 dark:bg-gray-700 mb-2">
+                <div id="subject-progress-bar" class="bg-raaya-green h-3 rounded-full transition-all duration-500" style="width: 0%"></div>
+            </div>
+            <p id="subject-progress-text" class="text-sm text-gray-600 dark:text-gray-400">0% (0/20 درس)</p>
+        </div>
+
+        <div id="lessons-container" class="space-y-4">
+            </div>
+        
+    </main>
+    
+    <footer class="bg-gray-200 dark:bg-gray-900 py-4 mt-12 transition-colors duration-300">
+        <div class="container mx-auto text-center text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-7xl">
+            <p>&copy; 2024 أكاديمية رؤية للعلوم الشرعية.</p>
+            <p class="mt-1 font-semibold text-raaya-dark dark:text-raaya-light">كن ذا أثر</p>
+        </div>
+    </footer>
+
+    <script type="module">
+        // استيراد الدوال الضرورية
+        import { isLessonOpen, updateSubjectProgressBar } from './js/progress_logic.js';
+        
+        const SUBJECT_NAME = 'aqidah'; // مهم: الاسم يجب أن يطابق ما في progress_logic.js
+
+        // بيانات الدروس (فيديوهات افتراضية)
+        const aqidahLessons = [
+            { title: "مفهوم العقيدة وأهميتها في حياة المسلم", videoId: "example_aqidah_1" },
+            { title: "الأسس التي تقوم عليها العقيدة الإسلامية", videoId: "example_aqidah_2" },
+            { title: "الإيمان بالله: توحيد الربوبية", videoId: "example_aqidah_3" },
+            { title: "الإيمان بالله: توحيد الألوهية", videoId: "example_aqidah_4" },
+            { title: "الإيمان بالله: توحيد الأسماء والصفات", videoId: "example_aqidah_5" },
+            { title: "شرح حديث جبريل وأركان الإيمان الستة", videoId: "example_aqidah_6" },
+            { title: "الإيمان بالملائكة: وظائفهم وصفاتهم", videoId: "example_aqidah_7" },
+            { title: "الإيمان بالكتب السماوية (القرآن الكريم)", videoId: "example_aqidah_8" },
+            { title: "الإيمان بالرسل والأنبياء", videoId: "example_aqidah_9" },
+            { title: "النبوة والرسالة وخصائص النبي محمد صلى الله عليه وسلم", videoId: "example_aqidah_10" },
+            { title: "الإيمان باليوم الآخر: أشراط الساعة الصغرى", videoId: "example_aqidah_11" },
+            { title: "الإيمان باليوم الآخر: أشراط الساعة الكبرى", videoId: "example_aqidah_12" },
+            { title: "الحياة البرزخية وعذاب القبر ونعيمه", videoId: "example_aqidah_13" },
+            { title: "البعث والنشور والحساب والميزان", videoId: "example_aqidah_14" },
+            { title: "الجنة والنار ورؤية الله تعالى", videoId: "example_aqidah_15" },
+            { title: "الإيمان بالقدر خيره وشره", videoId: "example_aqidah_16" },
+            { title: "مراتب القضاء والقدر", videoId: "example_aqidah_17" },
+            { title: "موقف المسلم من الشبهات والشهوات", videoId: "example_aqidah_18" },
+            { title: "أسباب زيادة الإيمان ونقصانه", videoId: "example_aqidah_19" },
+            { title: "الخلاصة والدروس المستفادة من العقيدة", videoId: "example_aqidah_20" },
+        ];
+
+        function createLessonsList(subjectName, lessonsArray, containerId) {
+            const lessonsContainer = document.getElementById(containerId);
+            if (!lessonsContainer) return;
+
+            lessonsArray.forEach((lesson, index) => {
+                const lessonNumber = index + 1;
+                const lessonId = `${subjectName}-${lessonNumber}`;
+                // استخدام الدالة الجديدة للتحقق من فتح الدرس (حتى للزوار)
+                const isOpen = isLessonOpen(subjectName, lessonNumber); 
+
+                const lessonLink = document.createElement('a');
+                
+                lessonLink.classList.add('block', 'p-4', 'rounded-lg', 'shadow-md', 'transition', 'duration-300', 'flex', 'justify-between', 'items-center', 'mt-2');
+
+                if (isOpen) {
+                    // الدرس مفتوح
+                    lessonLink.href = `lesson.html?id=${lessonId}&vid=${lesson.videoId}&subj=aqidah`;
+                    lessonLink.classList.add('bg-raaya-light', 'dark:bg-gray-700', 'hover:bg-raaya-sky/20', 'cursor-pointer');
+                    lessonLink.innerHTML = `
+                        <span class="text-lg font-semibold dark:text-raaya-light">الدرس رقم ${lessonNumber}: ${lesson.title}</span>
+                        <span class="text-raaya-green">مشاهدة الدرس &rarr;</span>
+                    `;
+                } else {
+                    // الدرس مغلق
+                    lessonLink.href = '#';
+                    lessonLink.classList.add('bg-gray-200', 'dark:bg-gray-800', 'cursor-not-allowed', 'opacity-70');
+                    lessonLink.innerHTML = `
+                        <span class="text-lg font-semibold text-gray-500 dark:text-gray-400">الدرس رقم ${lessonNumber}: ${lesson.title}</span>
+                        <span class="text-red-500">الدرس مغلق 🔒</span>
+                    `;
+                    lessonLink.addEventListener('click', (e) => { e.preventDefault(); });
+                }
+                lessonsContainer.appendChild(lessonLink);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createLessonsList(SUBJECT_NAME, aqidahLessons, 'lessons-container');
+            updateSubjectProgressBar(SUBJECT_NAME);
+        });
+    </script>
+</body>
+</html>

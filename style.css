@@ -1,0 +1,42 @@
+/* css/style.css */
+/* إعدادات الوضع الداكن */
+.dark {
+    background-color: #1e293b; /* raaya-dark */
+    color: #f1f5f9; /* نص فاتح */
+}
+
+.dark header {
+    background-color: #1f2937; /* خلفية داكنة للـ header */
+    border-bottom: 1px solid #334155;
+}
+
+.dark .shadow-md {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -2px rgba(0, 0, 0, 0.2);
+}
+
+.dark footer {
+    background-color: #1f2937;
+    border-top: 1px solid #334155;
+}
+
+/* تعديلات على مكونات Tailwind في الوضع الداكن */
+.dark .bg-white {
+    background-color: #334155; /* لون مختلف للبطاقات */
+    color: #f1f5f9;
+}
+
+.dark .bg-raaya-babyblue\/50 {
+    background-color: #334155; /* لون مختلف لـ hero section */
+}
+
+.dark .text-gray-900 {
+    color: #f1f5f9;
+}
+
+.dark .text-gray-800, .dark .text-gray-700, .dark .text-gray-600 {
+    color: #cbd5e1;
+}
+
+.dark .border-gray-200 {
+    border-color: #334155;
+}

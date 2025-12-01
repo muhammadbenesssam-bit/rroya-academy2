@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية رؤية - الرئيسية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'raaya-green': '#a7f3d0', 
+                        'raaya-beige': '#f5f5dc',
+                        'raaya-sky': '#87ceeb', 
+                        'raaya-dark': '#1e293b', 
+                        'raaya-light': '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* تكبير الحاوية وجعلها مركزية */
+        .page-container {
+            max-width: 1200px; 
+            margin: 0 auto;
+            padding: 2rem 1rem; /* تقليل الـ padding في الشاشات الصغيرة */
+        }
+
+        /* تطبيق الصورة كخلفية لكامل الصفحة (Body) */
+        body {
+            /* قم بتغيير المسار إذا كان مختلفًا عن images/background.jpg */
+            background-image: url('images/background.jpg'); 
+            background-size: cover; /* تغطية كامل الصفحة */
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* تثبيت الخلفية عند التمرير */
+            
+            /* دمج الخلفية البيج مع الصورة لجعلها شفافة ومخففة */
+            background-color: rgba(245, 245, 220, 0.9); /* raaya-beige شفافة */
+            background-blend-mode: overlay; /* دمج لون الخلفية مع الصورة */
+        }
+        
+        /* ضبط خلفية الوضع الداكن */
+        .dark body {
+            background-color: rgba(30, 41, 59, 0.9); /* raaya-dark شفافة */
+        }
+        
+        /* جعل الأقسام العائمة شفافة جزئياً لتحسين رؤية الخلفية */
+        .backdrop-blur-sm {
+            backdrop-filter: blur(2px);
+        }
+    </style>
+</head>
+<body class="bg-raaya-beige text-gray-800 transition-colors duration-300 dark:bg-raaya-dark dark:text-raaya-light">
+    
+    <header class="bg-raaya-light/80 dark:bg-gray-900/80 shadow-md transition-colors duration-300 sticky top-0 z-10 backdrop-blur-sm">
+        <div class="container mx-auto p-4 flex justify-between items-center max-w-7xl">
+            <a href="index.html" class="text-xl md:text-2xl font-bold text-raaya-dark dark:text-raaya-light">أكاديمية رؤية</a>
+            <div id="auth-links" class="flex items-center space-x-2 space-x-reverse">
+                </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+        
+        <section class="text-center py-12 md:py-24 bg-raaya-light/70 dark:bg-gray-800/70 rounded-3xl shadow-2xl backdrop-blur-sm relative z-0">
+            <h1 class="text-4xl md:text-7xl font-extrabold text-raaya-dark dark:text-raaya-light mb-4 leading-tight">
+                أكاديمية رؤية لتعليم العلوم الشرعية
+            </h1>
+            <p class="text-lg md:text-2xl text-gray-600 dark:text-gray-400 mb-8 max-w-3xl mx-auto px-4">
+                رحلتك لطلب العلم الشرعي تبدأ هنا. دروس مرتبة ببساطة، مرئية، ومنظمة داخل مستويات تعليمية متدرجة.
+            </p>
+            <a href="level1.html" class="px-8 py-3 md:px-10 md:py-4 bg-raaya-green text-raaya-dark text-xl md:text-2xl font-bold rounded-full shadow-lg hover:bg-raaya-sky hover:text-white transition duration-300 transform hover:scale-105">
+                ابدأ المستوى الأول الآن &rarr;
+            </a>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-24">
+            
+            <div class="p-5 md:p-6 bg-raaya-light/70 dark:bg-gray-800/70 rounded-xl shadow-lg text-center backdrop-blur-sm">
+                <h2 class="text-xl md:text-2xl font-bold dark:text-raaya-light mb-2">📞 اتصل بنا</h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400">
+                    تواصل معنا عبر البريد الإلكتروني أو الواتساب.
+                </p>
+            </div>
+            
+            <div class="p-5 md:p-6 bg-raaya-light/70 dark:bg-gray-800/70 rounded-xl shadow-lg text-center backdrop-blur-sm">
+                <h2 class="text-xl md:text-2xl font-bold dark:text-raaya-light mb-2">🕋 عن الأكاديمية</h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400">
+                    رؤيتنا وأهدافنا في نشر الوعي الديني.
+                </p>
+            </div>
+            
+            <div class="p-5 md:p-6 bg-raaya-light/70 dark:bg-gray-800/70 rounded-xl shadow-lg text-center backdrop-blur-sm">
+                <h2 class="text-xl md:text-2xl font-bold dark:text-raaya-light mb-2">📖 المنهج</h2>
+                <p class="text-sm md:text-base text-gray-600 dark:text-gray-400">
+                    تعرف على المواد والكتب المقررة لكل مستوى.
+                </p>
+            </div>
+
+        </section>
+        
+        <div class="mt-12 md:mt-16 text-center text-lg md:text-xl font-medium text-raaya-dark dark:text-raaya-light italic">
+            "من يرد الله به خيراً يفقهه في الدين"
+        </div>
+
+    </main>
+    
+    <footer class="bg-gray-200 dark:bg-gray-900 py-4 mt-12 transition-colors duration-300">
+        <div class="container mx-auto text-center text-xs md:text-sm text-gray-600 dark:text-gray-400 max-w-7xl">
+            <p>&copy; 2024 أكاديمية رؤية للعلوم الشرعية.</p>
+            <p class="mt-1 font-semibold text-raaya-dark dark:text-raaya-light">كن ذا أثر</p>
+        </div>
+    </footer>
+    
+    <script type="module">
+        import { getCurrentUser, logoutUser } from './js/progress_logic.js';
+        
+        const authLinksDiv = document.getElementById('auth-links');
+        const currentUser = getCurrentUser();
+
+        if (currentUser) {
+            // حالة المستخدم مسجل الدخول
+            authLinksDiv.innerHTML = `
+                <span class="text-sm md:text-base font-semibold text-raaya-dark dark:text-raaya-light ml-4">أهلاً، ${currentUser}</span>
+                <button id="logout-btn" class="bg-red-500 text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-red-700 transition duration-300">تسجيل خروج</button>
+            `;
+            document.getElementById('logout-btn').addEventListener('click', () => {
+                logoutUser();
+                window.location.reload(); // إعادة تحميل الصفحة بعد الخروج
+            });
+        } else {
+            // حالة المستخدم غير مسجل الدخول
+            authLinksDiv.innerHTML = `
+                <a href="login.html" class="bg-raaya-sky text-white px-3 py-1 md:px-4 md:py-2 rounded-full text-xs md:text-sm font-semibold hover:bg-raaya-dark transition duration-300">تسجيل الدخول</a>
+                <a href="register.html" class="text-raaya-dark dark:text-raaya-light hover:underline text-xs md:text-sm font-semibold">تسجيل جديد</a>
+            `;
+        }
+    </script>
+</body>
+</html>

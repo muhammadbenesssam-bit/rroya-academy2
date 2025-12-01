@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية رؤية - حسابي</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'raaya-green': '#a7f3d0', 
+                        'raaya-beige': '#f5f5dc',
+                        'raaya-sky': '#87ceeb',
+                        'raaya-babyblue': '#add8e6',
+                        'raaya-dark': '#1e293b', 
+                        'raaya-light': '#ffffff',
+                    },
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-raaya-beige text-gray-800 transition-colors duration-300 dark:bg-raaya-dark dark:text-raaya-light">
+
+    <header class="bg-raaya-light dark:bg-gray-900 shadow-md transition-colors duration-300">
+        <div class="container mx-auto p-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-raaya-dark dark:text-raaya-light">أكاديمية رؤية</a>
+            </div>
+    </header>
+
+    <main class="container mx-auto p-8">
+        
+        <h1 class="text-4xl font-extrabold text-raaya-dark dark:text-raaya-light mb-8 border-b pb-4 border-raaya-green">👤 ملفي الشخصي وإنجازاتي</h1>
+
+        <div class="bg-raaya-light dark:bg-gray-800 p-6 rounded-xl shadow-lg mb-10">
+            <h2 class="text-2xl font-bold mb-4 text-raaya-dark dark:text-raaya-light">مرحباً بك، طالب العلم!</h2>
+            <p class="text-gray-600 dark:text-gray-400">
+                **الاسم:** طالب رؤية (افتراضي)<br>
+                **البريد الإلكتروني:** test@raaya.com<br>
+                **المستوى الحالي:** المستوى الأول (العلوم الشرعية الأساسية)
+            </p>
+            <button class="mt-4 px-4 py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-300" onclick="alert('جاري تسجيل الخروج...'); window.location.href='index.html'">
+                تسجيل الخروج
+            </button>
+        </div>
+
+        <div class="bg-raaya-light dark:bg-gray-800 p-8 rounded-xl shadow-2xl border-t-4 border-raaya-sky">
+            <h2 class="text-3xl font-bold mb-6 text-raaya-dark dark:text-raaya-light">🏅 إنجاز المستوى الأول</h2>
+            
+            <div class="mb-8">
+                <p class="text-xl font-semibold dark:text-raaya-light">التقدم الكلي: <span id="overall-progress-percentage" class="text-raaya-sky text-2xl font-extrabold">0%</span></p>
+                <div class="w-full bg-gray-200 rounded-full h-4 dark:bg-gray-700 mt-2">
+                    <div id="overall-progress-bar" class="bg-raaya-sky h-4 rounded-full transition-all duration-700" style="width: 0%"></div>
+                </div>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">تم إكمال <span id="completed-lessons-count">0</span> درس من أصل <span id="total-lessons-count">55</span>.</p>
+            </div>
+
+            <div class="p-4 bg-raaya-beige dark:bg-gray-900 rounded-lg shadow-inner flex justify-between items-center">
+                <div>
+                    <p class="text-xl font-bold dark:text-raaya-light">حالة الامتحان النهائي:</p>
+                    <p id="exam-status" class="text-red-500 font-semibold mt-1">مغلق - أكمل جميع الدروس لفتح الامتحان.</p>
+                </div>
+                <a id="exam-link" href="#" class="px-6 py-2 bg-gray-400 text-white font-semibold rounded-lg transition duration-300 cursor-not-allowed">
+                    بدء الامتحان
+                </a>
+            </div>
+            
+        </div>
+
+        <div class="mt-10 grid md:grid-cols-3 gap-6">
+            <div class="bg-raaya-light dark:bg-gray-800 p-5 rounded-xl shadow-md border-b-2 border-raaya-green">
+                <h3 class="text-xl font-bold text-raaya-green mb-3">📚 الفقه</h3>
+                <p class="dark:text-raaya-light">الإنجاز: <span id="fiqh-progress">0%</span></p>
+            </div>
+            <div class="bg-raaya-light dark:bg-gray-800 p-5 rounded-xl shadow-md border-b-2 border-raaya-sky">
+                <h3 class="text-xl font-bold text-raaya-sky mb-3">🕌 السيرة</h3>
+                <p class="dark:text-raaya-light">الإنجاز: <span id="seerah-progress">0%</span></p>
+            </div>
+            <div class="bg-raaya-light dark:bg-gray-800 p-5 rounded-xl shadow-md border-b-2 border-raaya-babyblue">
+                <h3 class="text-xl font-bold text-raaya-babyblue mb-3">✨ العقيدة</h3>
+                <p class="dark:text-raaya-light">الإنجاز: <span id="aqidah-progress">0%</span></p>
+            </div>
+        </div>
+
+    </main>
+    
+    <script src="js/main.js"></script>
+    <script src="js/account_progress.js"></script> 
+</body>
+</html>
